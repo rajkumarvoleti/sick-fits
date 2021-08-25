@@ -17,9 +17,9 @@ const GlobalStyles = createGlobalStyle`
     --lightGrey: #e1e1e1;
     --lightGray: var(--lightGrey);
     --offWhite: #ededed;
-    --maxWidth: 1000px;
+    --maxWidth: 100vw;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
-    box-sizing: border-box;
+    font-size: 10px;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -46,7 +46,7 @@ const GlobalStyles = createGlobalStyle`
 const InnerStyles = styled.div`
   max-width: var(--maxWidth);
   margin: o auto;
-  padding: 2rem;
+  padding: 5rem;
 `;
 
 export default function Page({ children }) {

@@ -51,6 +51,7 @@ export default withAuth(
       isAccessAllowed: ({ session }) =>
         // it's an graphQl query
         // console.log(session);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         !!session?.data, // !! is used to convert it into boolean
     },
     // add session values here
