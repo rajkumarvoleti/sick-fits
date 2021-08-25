@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
+<<<<<<< HEAD
 import { ApolloProvider } from '@apollo/client';
 import NProgress from 'nprogress';
 import Router from 'next/router';
@@ -10,6 +11,9 @@ import withData from '../lib/withData';
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
+=======
+import Page from '../components/Page';
+>>>>>>> 6013694bc769eead60826887c7caa7ba634c03a8
 
 function MyApp({ Component, pageProps, apollo }) {
   return (

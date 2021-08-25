@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import styled, { createGlobalStyle } from 'styled-components';
 import Header from './Header';
 
+<<<<<<< HEAD
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'radnika_next';
@@ -50,15 +50,20 @@ const InnerStyles = styled.div`
 `;
 
 export default function Page({ children }) {
+=======
+export default function Page({ children, cool }) {
+>>>>>>> 6013694bc769eead60826887c7caa7ba634c03a8
   return (
     <div>
-      <GlobalStyles />
       <Header />
-      <InnerStyles>{children}</InnerStyles>
+      <h2>I am a component</h2>
+      {children}
+      {cool}
     </div>
   );
 }
 
 Page.propTypes = {
+  cool: PropTypes.string,
   children: PropTypes.any,
 };
