@@ -63,7 +63,10 @@
   "eslintConfig": {
     "extends": [
       "wesbos"
-    ]
+    ],
+    "rules": {
+      "@typescript-eslint/no-unsafe-assignment": 0
+    }
   },
   "jest": {
     "setupFilesAfterEnv": [
