@@ -3,7 +3,6 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
-import Product from './Product';
 
 const ProductStyles = styled.div`
   display: grid;
@@ -22,7 +21,7 @@ const ProductStyles = styled.div`
   }
 `;
 
-const SINGLE_ITEM_QUERY = gql`
+export const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
     Product(where: { id: $id }) {
       name
