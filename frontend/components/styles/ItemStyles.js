@@ -6,6 +6,7 @@ const ItemStyles = styled.div`
   box-shadow: var(--bs);
   position: relative;
   display: flex;
+  max-width: 600px;
   flex-direction: column;
   img {
     width: 100%;
