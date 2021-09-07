@@ -4,7 +4,7 @@ export default function useForm(initial = {}) {
   // create a state object for our inputs
   const [inputs, setInputs] = useState(initial);
   const initialValues = Object.values(initial).join('');
-  console.log(initialValues);
+  // console.log(initialValues);
   useEffect(() => {
     // This function runs when the things we are watching change
     setInputs(initial);
