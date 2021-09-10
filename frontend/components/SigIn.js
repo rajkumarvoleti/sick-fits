@@ -59,7 +59,7 @@ export default function SignIn() {
       <h2>Sign Into Your Account</h2>
       <DisplayError error={errorMsg} />
       <p>{data?.authenticateUserWithPassword?.message}</p>
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="email">
           Email
           <input

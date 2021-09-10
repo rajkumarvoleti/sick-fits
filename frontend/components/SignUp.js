@@ -34,18 +34,18 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
     const res = await signup().catch(console.error);
-    console.log({ data, error, loading });
-    console.log(res);
+    // console.log({ data, error, loading });
+    // console.log(res);
     resetForm();
   }
 
   const user = useQuery(CURRENT_USER_QUERY);
-  console.log('data is ');
-  console.log(data?.createUser?.email);
+  // console.log('data is ');
+  // console.log(data?.createUser?.email);
   return (
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign Up For an Account</h2>
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         {error && <DisplayError error={error} />}
         {data?.createUser && (
           <p>
