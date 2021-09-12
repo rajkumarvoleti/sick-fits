@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useCart } from '../lib/cartState';
+import CartCount from './CartCount';
 import SignOut from './SignOut';
 import NavStyles from './styles/NavStyles';
 import { useUser } from './User';
@@ -7,6 +8,11 @@ import { useUser } from './User';
 export default function Nav() {
   const user = useUser();
   const { openCart } = useCart();
+  function getCount(cart) {
+    if (!cart) return 0;
+    return cart.reduce((count, cartItem) => count + cartItem.quantity, 0);
+  }
+  console.log(getCount(user?.cart));
   return (
     <NavStyles>
       <Link href="/products"> Products</Link>
@@ -18,6 +24,7 @@ export default function Nav() {
           <SignOut />
           <button type="button" onClick={openCart}>
             My Cart
+            <CartCount count={getCount(user.cart)} />
           </button>
         </>
       )}
