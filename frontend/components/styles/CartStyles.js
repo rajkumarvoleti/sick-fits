@@ -16,6 +16,9 @@ const CartStyles = styled.div`
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 5;
   display: grid;
+  footer {
+    margin-bottom: 2rem;
+  }
   grid-template-rows: auto 1fr auto;
   ${(props) => props.open && `transform: translateX(0);`};
   header {
@@ -27,8 +30,8 @@ const CartStyles = styled.div`
     border-top: 10px double var(--black);
     margin-top: 2rem;
     padding-top: 2rem;
-    display: grid;
-    grid-template-columns: auto auto;
+    /* display: grid;
+    grid-template-columns: auto auto; */
     align-items: center;
     font-size: 3rem;
     font-weight: 900;

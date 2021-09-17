@@ -12,7 +12,6 @@ export default function Nav() {
     if (!cart) return 0;
     return cart.reduce((count, cartItem) => count + cartItem.quantity, 0);
   }
-  console.log(getCount(user?.cart));
   return (
     <NavStyles>
       <Link href="/products"> Products</Link>
