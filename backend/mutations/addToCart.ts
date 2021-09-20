@@ -26,7 +26,6 @@ export default async function addToCart(
   // check if the item is already in the cart
   if (exsistingCartItem) {
     // if it is increment by one
-    console.log(exsistingCartItem);
     console.log(
       `There are already ${exsistingCartItem.quantity}, increment by one`
     );

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "outDir": "./build/",
     "module": "commonjs",
     "strict": true,
@@ -8,6 +8,6 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+  },
 }

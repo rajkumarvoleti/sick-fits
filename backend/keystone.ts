@@ -5,6 +5,7 @@ import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
+import { Role } from './schemas/Role';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
 import { CartItem } from './schemas/CartItem';
@@ -14,6 +15,7 @@ import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations';
+import { permissionsList } from './schemas/fields';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits-tutorial';
@@ -33,9 +35,7 @@ const { withAuth } = createAuth({
   },
   passwordResetLink: {
     async sendToken(args) {
-      // console.log(args);
       //  send email
-      console.log(args);
       await sendPasswordResetEmail(args.token, args.identity);
     },
   },
@@ -65,19 +65,19 @@ export default withAuth(
       CartItem,
       OrderItem,
       Order,
+      Role,
     }),
     extendGraphqlSchema,
     ui: {
       // show the ui only for the people who can pass
       isAccessAllowed: ({ session }) =>
         // it's an graphQl query
-        // console.log(session);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         !!session?.data, // !! is used to convert it into boolean
     },
     // add session values here
     session: withItemData(statelessSessions(sessionConfig), {
-      User: 'id',
+      User: `id name email role { ${permissionsList.join(' ')} }`,
     }),
   })
 );

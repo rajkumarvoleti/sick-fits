@@ -22,7 +22,6 @@ export default async function checkOut(
   if(!userId){
     throw new Error('Sorry! You must be signed in to create an order!');
   }
-  console.log(context.session);
   const user = await context.lists.User.findOne({
     where: {id:userId},
     resolveFields: graphql`
@@ -48,13 +47,11 @@ export default async function checkOut(
     }
     `
   });
-  console.log(user);
   // calculate the total price for their order
   const cartItems = user.cart.filter(cartItem => cartItem.product)
   const amount = cartItems.reduce(function(tally:number,cartItem:CartItemCreateInput){
     return tally + cartItem.quantity*cartItem.product.price;
   },0);
-  console.log(amount);
   // create the payment with stripe
   const charge = await stripeConfig.paymentIntents.create({
     amount,
@@ -62,7 +59,7 @@ export default async function checkOut(
     confirm: true,
     payment_method: token,
   }).catch(err => {
-    console.log(err);
+    // console.log(err);
     throw new Error(err.message);
   })
   // convert the cartItems to orderedItems
